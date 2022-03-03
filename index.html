@@ -10,12 +10,71 @@
     <title>QUIZ</title>
 </head>
 <body>
+    <header id="encabezadoPpal"><h1><b>QUIZ 2.0</b></h1></header>
+    <main>
+        <div class="container">
+            <section class="presentacion1">
+                <h3 id="textoPres" style="margin: 10%;">Bienvenid@s al <strong>Quiz v.2.0</strong></h3>
+                <div id="login">
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" name="email" placeholder="Introduce tu email..."><br><br>
+                    <button id="btnEmpezar">Empezar</button>
+                    <img id="google" src="./img/login_google.png" alt="Login Google"><br>
+                    <div id="registro">
+                        <label for="emailReg">Registrate: </label>
+                        <input type="email" id="emailReg" name="emailReg" placeholder="Introduce tu email..."><br><br>
+                    </div>
+                    <button id="bot1" onclick="location.href='./quiz.html'" >Empezar</button>
+                </div>
+            </section>
+        
+
+            <section class="presentacion2">
+                <h3>Estadísticas</h3>
+                <div id="grafAcumulado"></div>
+                
+                <div id="datosAcumulados">
+                    <ol>
+                        <li>Lorem ipsum dolor sit </li>
+                        <li>Lorem ipsum dolor sit </li>
+                        <li>Lorem ipsum dolor sit </li>
+                        <li>Lorem ipsum dolor sit </li>
+                    </ol>
+                </div>
+        </div>
+            
+
+        </section>
+            
+        
+
+        
+    </main>
+    <footer id="footerPpal">
+    </footer>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+<!--
+<body>
     <header id="encabezadoPpal">
-        <h1><b>LETAL QUIZ</b></h1>
+        <h1><b>QUIZ 2.0</b></h1>
     </header>
     <main>
-        <section id="presentacion"> <!-- CAJA PRESENTACIÓN -->
-            <p id="textoPres">Bienvenid@s a nuestro <strong>super juego de preguntas.</strong> Si estás preparado/a para enfrentarte a este reto, sólo tienes que leerte unas sencillas normas y pulsar el botón <u>Empezar</u>. Que la suerte te acompañe!!</ul></p>
+        <section id="presentacion">  CAJA PRESENTACIÓN -->
+<!--            <p id="textoPres">Bienvenid@s a nuestro <strong>super juego de preguntas.</strong> Si estás preparado/a para enfrentarte a este reto, sólo tienes que leerte unas sencillas normas y pulsar el botón <u>Empezar</u>. Que la suerte te acompañe!!</ul></p>
         </section>
 
         <section id="normas">
@@ -42,3 +101,4 @@
     <script src="./js/script.js"></script>
 </body>
 </html>
+-->
