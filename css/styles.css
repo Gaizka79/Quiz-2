@@ -1,0 +1,305 @@
+body {
+    background-color:aqua;
+}
+header{
+    background-color: #01BBFF;
+    color: white;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    padding-left: 10%;
+}
+
+/*main {
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}*/
+
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.presentacion1, .presentacion2 {
+    
+    align-self: center;
+    border-radius: 1em;
+    
+    background-color: white;
+    color:black;
+    font-size: large;
+    text-align: center;
+    width: 33%;
+    
+    
+}
+    #textoPres {
+        margin: 25%;
+    }
+    #imgNormas {
+        width: 50%;
+        height: 50%;
+        align-self: center;
+    }
+#graficas {
+    border-radius: 1em;
+    background-color: white;
+    font-size: medium;
+    width: 33%;
+    flex: 1;
+
+}
+#bot1 {
+    margin-bottom: 5%;
+    background-color: blue;
+    color: white;
+    border-radius: 0.4em;
+    font-size: medium;
+}
+
+
+.grid {
+    width: 85%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 10px 50px 50px 50px;
+    border: 2px solid #CBCBCB;
+}
+.grid h1 {
+    font-family: "sans-serif";
+    background-color: black;
+    font-size: 60px;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 2px 0px;
+}
+#score {
+    color: black;
+    text-align: center;
+    font-size: 50px;
+}
+.grid #question {
+    font-family: "monospace";
+    font-size: 50px;
+    color: black;
+}
+.buttons {
+    margin-top: 30px;
+}
+#btn0, #btn1, #btn2, #btn3 {
+    display: block;
+    background-color: #01BBFF;
+    width: 100%;
+    font-size: 60px;
+    color: #fff;
+    border: 45px solid 01BBFF;
+    margin: 10px 40px 10px 0px;
+    padding: 10px 10px;
+}
+#btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover {
+    cursor: pointer;
+    background-color: #01BBFF;
+}
+#btn0:focus, #btn1:focus, #btn2:focus, #btn3:focus {
+    outline: 0;
+}
+#progress {
+    color: #2B2B2B;
+    font-size: 40px;
+}
+
+
+#botones {
+    color:aqua;
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+    #bot1 {
+        color:brown;
+        width: 30%;
+        font-size: x-large;
+    }
+    #bot2 {
+        display: none;
+        color:wheat;
+        background: black;
+        width: 30%;
+        font-size: x-large;
+    }
+#footerPpal {
+    background-color: black;
+    color: white;
+    text-align: center;
+    width:100%;
+    margin-bottom: 0%;
+}
+/* ********* RESPONSIVE ******** */
+/* Para móvil */
+@media screen and (max-width:480px) {
+    .container {
+        flex-direction: column;
+        align-items:center;
+        justify-content:space-evenly;
+    }
+    .presentacion1, .presentacion2 {
+        width: 60%;
+        align-self: center;
+        
+    }
+    section img {
+        display:none;
+    }
+    #listaNormas {
+        max-width: 100%;
+    }
+}
+
+
+/*
+body {
+    background-color: cadetblue;
+    font-family: 'Courier New', Courier, monospace;
+}
+#encabezadoPpal {
+    background-color: black;
+    color:white;
+    text-align: center;
+    width: 100%;
+    margin-top: 0%;
+}
+#presentacion {
+    border-style: double;
+    border-color: black;
+    border: "50px";
+    color:blue;
+    font-size: large;
+    text-align: center;
+}
+    #textoPres {
+        margin: 3%;
+    }
+#normas {  Contendor de Normas 
+    margin-top: 3%;
+    border-style: double;
+    border-color: black;
+    border: "50px";
+    color:blue;
+    font-size: large;
+    display: flex;
+    flex-wrap: wrap;
+}
+    #textoNorm {
+        width: 100%;
+        margin: 3%;
+        text-align: center;
+        flex: flex;       
+    }
+    #listaNormas {
+        margin: 0 3% 3% 1%;
+        max-width: 48%;
+        text-align: justify;
+        flex: 1;
+    }
+    ol li { 
+        padding-bottom: 1.5ex;
+    }
+    #imgNormas {
+        margin-right: 3%;
+        margin-bottom: 3%;
+        max-width: 48%;
+        flex: 1;
+    }*/
+
+
+
+
+
+
+/* ********* CSS para el QUIZ ********* */ /*
+#dnd {
+    flex: auto;
+    flex-direction: column;
+}
+#campo {  /* Contendor de preguntas *//*
+    margin-top: 3%;
+    border-style: double;
+    border-color: black;
+    border: "50px";
+    color:blue;
+    font-size: large;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: flex-start;
+    height: 100%;
+    /*flex-wrap: wrap;*/ /*
+}
+#pregunta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    flex: auto;
+    display:auto;     
+    background-color: wheat; 
+    color: red;
+}
+    #resp1 {
+        flex: auto;
+        width: 100%;
+        height: 20%;
+        display: block;
+        text-align: center;
+        background-color: green; 
+        color: white;  
+    }
+    #resp2 {
+        flex: auto;
+        display: block;
+        width: 100%;
+        height: 20%;
+        text-align: center;
+        background-color: blue; 
+        color: white;    
+    }
+    #resp3 {
+        flex: auto;
+        display: block;
+        width: 100%;
+        height: 20%;
+        text-align: center;
+        background-color: pink; 
+        color: white;      
+        
+    }
+    #resp4 {
+        flex: auto;
+        display: block;
+        width: 100%;
+        height: 20%;
+        text-align: center; 
+        background-color: yellow; 
+        color: white;     
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
