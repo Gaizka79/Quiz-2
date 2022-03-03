@@ -1,3 +1,12 @@
+let sRegistro = document.getElementById('registro');
+
+
+
+
+
+
+
+
 //************* ASYNC / AWAIT ************\\
 let misPreguntas = [];
 async function getPreguntas() {
@@ -35,22 +44,26 @@ db.collection("dbQuiz")
 };
 
    //Sortzeko
-/*document.getElementById("crear").addEventListener("click", () => {
+document.getElementById("sinRegistrar").addEventListener("click", () => {
+  alert("okkkoko");
+  //document.getElementById('sinRegistrar').style= "cursor: pointer";
+})
+document.getElementById("crear").addEventListener("click", () => {
 let sNombre = document.getElementById('txtNombre');
 let sEmail = document.getElementById('txtEmail');
 let fecha = new Date();
 emailOK = checkEmail(sEmail.value);//******************* */
-/*console.log("El correo a validar es: ", + emailOK);
+console.log("El correo a validar es: ", + emailOK);
   createUser({
     nombre: sNombre.value,
     email: sEmail.value,
     fecha: fecha,
   });
-});*/
+});
 let emailOK = false;
 let sEmpezar = document.getElementById('btnEmpezar');
 let sEmail = document.getElementById('email');
-let sRegistro = document.getElementById('registro');
+//let sRegistro = document.getElementById('registro');
 sEmpezar.addEventListener('click', () => {
   emailOK = checkEmail(sEmail.value);
   if (emailOK) {

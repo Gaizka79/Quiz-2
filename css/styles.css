@@ -18,13 +18,9 @@ header{
     justify-content: center;
 
 }*/
-#registro {
-    display:none;
-   
-}
+
 
 .container {
-    
     position: relative;
     display: flex;
     flex-direction: row;
@@ -122,6 +118,53 @@ header{
 }
 
 
+#botones {
+    color:aqua;
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+    #bot1 {
+        color:brown;
+        width: 30%;
+        font-size: x-large;
+    }
+    #bot2 {
+        display: none;
+        color:wheat;
+        background: black;
+        width: 30%;
+        font-size: x-large;
+    }
+#footerPpal {
+    background-color: black;
+    color: white;
+    text-align: center;
+    width:100%;
+    margin-bottom: 0%;
+}
+/* ********* RESPONSIVE ******** */
+/* Para móvil */
+@media screen and (max-width:480px) {
+    .container {
+        flex-direction: column;
+        align-items:center;
+        justify-content:space-evenly;
+    }
+    .presentacion1, .presentacion2 {
+        width: 60%;
+        align-self: center;
+        
+    }
+    section img {
+        display:none;
+    }
+    #listaNormas {
+        max-width: 100%;
+    }
+}
+
+
 /*
 body {
     background-color: cadetblue;
@@ -176,31 +219,11 @@ body {
         max-width: 48%;
         flex: 1;
     }*/
-#botones {
-    color:aqua;
-    margin-top: 3%;
-    display: flex;
-    justify-content: center;
-}
-    #bot1 {
-        color:brown;
-        width: 30%;
-        font-size: x-large;
-    }
-    #bot2 {
-        display: none;
-        color:wheat;
-        background: black;
-        width: 30%;
-        font-size: x-large;
-    }
-#footerPpal {
-    background-color: black;
-    color: white;
-    text-align: center;
-    width:100%;
-    margin-bottom: 0%;
-}
+
+
+
+
+
 
 /* ********* CSS para el QUIZ ********* */ /*
 #dnd {
@@ -280,23 +303,3 @@ body {
 
 
 
-/* ********* RESPONSIVE ******** */
-/* Para móvil */
-@media screen and (max-width:480px) {
-    .container {
-        flex-direction: column;
-        align-items:center;
-        justify-content:space-evenly;
-    }
-    .presentacion1, .presentacion2 {
-        width: 60%;
-        align-self: center;
-        
-    }
-    section img {
-        display:none;
-    }
-    #listaNormas {
-        max-width: 100%;
-    }
-}
