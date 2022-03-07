@@ -1,46 +1,57 @@
+*{
+    box-sizing: border-box;
+}
 body {
     background-color:aqua;
 }
 header{
     background-color: #01BBFF;
-    color: white;
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    padding-left: 10%;
-}
+    margin-top: 0px;
 
+    
+    
+}
+h1{
+    margin-top: 0%;
+    color:white;
+    text-align: center;
+    
+}
 /*main {
     justify-content: space-around;
     align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
-
 }*/
-
-
-.container {
-    position: relative;
+#cajaPadre {
+    /*position: relative;*/
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: space-evenly;
+    height: 500px;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
-
-.presentacion1, .presentacion2 {
-    
-    align-self: center;
+#presentacion1, #presentacion2 {
     border-radius: 1em;
-    
     background-color: white;
     color:black;
     font-size: large;
     text-align: center;
     width: 33%;
+    height: 80%;
     
+    display: flex;;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+#presentacion1{
     
+}
+#presentacion2{
+    
+
 }
     #textoPres {
         margin: 25%;
@@ -50,6 +61,12 @@ header{
         height: 50%;
         align-self: center;
     }
+
+#google {
+    
+    /*width: 250px;*/
+    
+}
 #graficas {
     border-radius: 1em;
     background-color: white;
@@ -58,7 +75,7 @@ header{
     flex: 1;
 
 }
-#bot1 {
+#bot1, #bot2 {
     margin-bottom: 5%;
     background-color: blue;
     color: white;
@@ -117,25 +134,6 @@ header{
     font-size: 40px;
 }
 
-
-#botones {
-    color:aqua;
-    margin-top: 3%;
-    display: flex;
-    justify-content: center;
-}
-    #bot1 {
-        color:brown;
-        width: 30%;
-        font-size: x-large;
-    }
-    #bot2 {
-        display: none;
-        color:wheat;
-        background: black;
-        width: 30%;
-        font-size: x-large;
-    }
 #footerPpal {
     background-color: black;
     color: white;
@@ -143,18 +141,88 @@ header{
     width:100%;
     margin-bottom: 0%;
 }
+
+/*****  HOJA RESULTADOS  **********/
+#cajaPadreResults{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    height: 500px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
+#hijo1Results{
+    border-radius: 1em;
+    background-color: white;
+    color:black;
+    font-size: large;
+    text-align: center;
+    width: 80%;
+    height: 80%;
+    
+    display: flex;;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+#circulo{
+    background-color: aquamarine;
+    width: 25%;
+    height: 60%;
+    border-radius: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    font-size: xx-large;
+}
+#res{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 300px;
+}
+#resultados{
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+#grafica1{
+    background-color: pink;
+    min-height: 50%;
+    width: 100%;
+    
+}
+#otraPartida{
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+}
+
+
 /* ********* RESPONSIVE ******** */
 /* Para móvil */
 @media screen and (max-width:480px) {
-    .container {
+    #cajaPadre {
+        display: flex;
         flex-direction: column;
         align-items:center;
         justify-content:space-evenly;
-    }
-    .presentacion1, .presentacion2 {
-        width: 60%;
-        align-self: center;
+        height: 900px;
+        flex-wrap: nowrap;
         
+    }
+    #presentacion1, #presentacion2 {
+        width: 60%;
+        
+        max-height: auto;
+        flex-direction: column;
+        align-self: center;
+        justify-content: center;
     }
     section img {
         display:none;
@@ -162,6 +230,43 @@ header{
     #listaNormas {
         max-width: 100%;
     }
+    #google {
+        max-width: 50%;
+    }
+}
+/* Para Tablet */
+@media screen and (max-width:900px) {
+    #cajaPadre {
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content:space-evenly;
+        height: 900px;
+        flex-wrap: nowrap;
+        
+    }
+    #presentacion1, #presentacion2 {
+        width: 60%;
+        
+        max-height: auto;
+        flex-direction: column;
+        align-self: center;
+        justify-content: center;
+    }
+    section img {
+        display:none;
+    }
+    #listaNormas {
+        max-width: 100%;
+    }
+    #google {
+        max-width: 50%;
+    }
+}
+
+
+
+
 }
 
 
