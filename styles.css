@@ -1,0 +1,410 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    background-color:aqua;
+}
+header{
+    background-color: #01BBFF;
+    margin-top: 0px;
+
+    
+    
+}
+h1{
+    margin-top: 0%;
+    color:white;
+    text-align: center;
+    
+}
+/*main {
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}*/
+#cajaPadre {
+    /*position: relative;*/
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 500px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+#presentacion1, #presentacion2 {
+    border-radius: 1em;
+    background-color: white;
+    color:black;
+    font-size: large;
+    text-align: center;
+    width: 33%;
+    height: 80%;
+    
+    display: flex;;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+#presentacion1{
+    
+}
+#presentacion2{
+    
+
+}
+    #textoPres {
+        margin: 25%;
+    }
+    #imgNormas {
+        width: 50%;
+        height: 50%;
+        align-self: center;
+    }
+
+#google {
+    
+    /*width: 250px;*/
+    
+}
+#graficas {
+    border-radius: 1em;
+    background-color: white;
+    font-size: medium;
+    width: 33%;
+    flex: 1;
+
+}
+#bot1, #bot2 {
+    margin-bottom: 5%;
+    background-color: blue;
+    color: white;
+    border-radius: 0.4em;
+    font-size: medium;
+}
+
+
+.grid {
+    width: 85%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 10px 50px 50px 50px;
+    border: 2px solid #CBCBCB;
+}
+.grid h1 {
+    font-family: "sans-serif";
+    background-color: black;
+    font-size: 60px;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 2px 0px;
+}
+#score {
+    color: black;
+    text-align: center;
+    font-size: 50px;
+}
+.grid #question {
+    font-family: "monospace";
+    font-size: 50px;
+    color: black;
+}
+.buttons {
+    margin-top: 30px;
+}
+#btn0, #btn1, #btn2, #btn3 {
+    display: block;
+    background-color: #01BBFF;
+    width: 100%;
+    font-size: 60px;
+    color: #fff;
+    border: 45px solid 01BBFF;
+    margin: 10px 40px 10px 0px;
+    padding: 10px 10px;
+}
+#btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover {
+    cursor: pointer;
+    background-color: #01BBFF;
+}
+#btn0:focus, #btn1:focus, #btn2:focus, #btn3:focus {
+    outline: 0;
+}
+#progress {
+    color: #2B2B2B;
+    font-size: 40px;
+}
+
+#footerPpal {
+    background-color: black;
+    color: white;
+    text-align: center;
+    width:100%;
+    margin-bottom: 0%;
+}
+
+/*****  HOJA RESULTADOS  **********/
+#cajaPadreResults{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    height: 500px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
+#hijo1Results{
+    border-radius: 1em;
+    background-color: white;
+    color:black;
+    font-size: large;
+    text-align: center;
+    width: 80%;
+    height: 80%;
+    
+    display: flex;;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+#circulo{
+    background-color: aquamarine;
+    width: 25%;
+    height: 60%;
+    border-radius: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    font-size: xx-large;
+}
+#res{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 300px;
+}
+#resultados{
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+#grafica1{
+    background-color: pink;
+    min-height: 50%;
+    width: 100%;
+    
+}
+#otraPartida{
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+}
+
+
+/* ********* RESPONSIVE ******** */
+/* Para móvil */
+@media screen and (max-width:480px) {
+    #cajaPadre {
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content:space-evenly;
+        height: 900px;
+        flex-wrap: nowrap;
+        
+    }
+    #presentacion1, #presentacion2 {
+        width: 60%;
+        
+        max-height: auto;
+        flex-direction: column;
+        align-self: center;
+        justify-content: center;
+    }
+    section img {
+        display:none;
+    }
+    #listaNormas {
+        max-width: 100%;
+    }
+    #google {
+        max-width: 50%;
+    }
+}
+/* Para Tablet */
+@media screen and (max-width:900px) {
+    #cajaPadre {
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content:space-evenly;
+        height: 900px;
+        flex-wrap: nowrap;
+        
+    }
+    #presentacion1, #presentacion2 {
+        width: 60%;
+        
+        max-height: auto;
+        flex-direction: column;
+        align-self: center;
+        justify-content: center;
+    }
+    section img {
+        display:none;
+    }
+    #listaNormas {
+        max-width: 100%;
+    }
+    #google {
+        max-width: 50%;
+    }
+}
+
+
+
+
+
+
+
+/*
+body {
+    background-color: cadetblue;
+    font-family: 'Courier New', Courier, monospace;
+}
+#encabezadoPpal {
+    background-color: black;
+    color:white;
+    text-align: center;
+    width: 100%;
+    margin-top: 0%;
+}
+#presentacion {
+    border-style: double;
+    border-color: black;
+    border: "50px";
+    color:blue;
+    font-size: large;
+    text-align: center;
+}
+    #textoPres {
+        margin: 3%;
+    }
+#normas {  Contendor de Normas 
+    margin-top: 3%;
+    border-style: double;
+    border-color: black;
+    border: "50px";
+    color:blue;
+    font-size: large;
+    display: flex;
+    flex-wrap: wrap;
+}
+    #textoNorm {
+        width: 100%;
+        margin: 3%;
+        text-align: center;
+        flex: flex;       
+    }
+    #listaNormas {
+        margin: 0 3% 3% 1%;
+        max-width: 48%;
+        text-align: justify;
+        flex: 1;
+    }
+    ol li { 
+        padding-bottom: 1.5ex;
+    }
+    #imgNormas {
+        margin-right: 3%;
+        margin-bottom: 3%;
+        max-width: 48%;
+        flex: 1;
+    }*/
+
+
+
+
+
+
+/* ********* CSS para el QUIZ ********* */ /*
+#dnd {
+    flex: auto;
+    flex-direction: column;
+}
+#campo {  /* Contendor de preguntas *//*
+    margin-top: 3%;
+    border-style: double;
+    border-color: black;
+    border: "50px";
+    color:blue;
+    font-size: large;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: flex-start;
+    height: 100%;
+    /*flex-wrap: wrap;*/ /*
+}
+#pregunta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    flex: auto;
+    display:auto;     
+    background-color: wheat; 
+    color: red;
+}
+    #resp1 {
+        flex: auto;
+        width: 100%;
+        height: 20%;
+        display: block;
+        text-align: center;
+        background-color: green; 
+        color: white;  
+    }
+    #resp2 {
+        flex: auto;
+        display: block;
+        width: 100%;
+        height: 20%;
+        text-align: center;
+        background-color: blue; 
+        color: white;    
+    }
+    #resp3 {
+        flex: auto;
+        display: block;
+        width: 100%;
+        height: 20%;
+        text-align: center;
+        background-color: pink; 
+        color: white;      
+        
+    }
+    #resp4 {
+        flex: auto;
+        display: block;
+        width: 100%;
+        height: 20%;
+        text-align: center; 
+        background-color: yellow; 
+        color: white;     
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
