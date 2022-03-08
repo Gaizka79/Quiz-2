@@ -1,89 +1,80 @@
-let sRegistro = document.getElementById('registro');
+var provider = new firebase.auth.GoogleAuthProvider();
 
-
-
-
-
-
-
-
-//************* ASYNC / AWAIT ************\\
-let misPreguntas = [];
-async function getPreguntas() {
-  try {
-      let response = await fetch('https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple')
-      let data = await response.json();
-      misPreguntas = data;
-  } catch (error) {
-      console.log("Se ha producido un error: " + error);
-      alert("Se ha producido el error: " + error);
-  }
-};
-getPreguntas();
-console.log(misPreguntas);
-
+let sEmail1 = document.getElementById('email');
+let sPassword1 = document.getElementById('password');
+let sBot1 = document.getElementById('bot1');
+let sEmail2 = document.getElementById('email2');
+let sPassword2 = document.getElementById('password2');
+let sBot2 = document.getElementById('bot2');
+let sGoogle = document.getElementById('google');
 
 //************** FIREBASE ****************\\
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBn0GY_S3cEtrYzFRu0cCeQrQCi1ZQQMbk",
-  authDomain: "prueba-web-5f9f0.firebaseapp.com",
-  projectId: "prueba-web-5f9f0",
-  storageBucket: "prueba-web-5f9f0.appspot.com",
-  messagingSenderId: "97164636430",
-  appId: "1:97164636430:web:bc4c0f910f9ac32cb0275f"
+  apiKey: "AIzaSyB6w4Uz6KnhdYh73nh-J5YC8gK02KgfN0I",
+  authDomain: "quiz2-614da.firebaseapp.com",
+  projectId: "quiz2-614da",
+  storageBucket: "quiz2-614da.appspot.com",
+  messagingSenderId: "219029612983",
+  appId: "1:219029612983:web:35027a1c542c4edd09a032"
 };
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-const createUser = (user) => {
-db.collection("dbQuiz")
- .add(user)
- .then((docRef) => console.log("Document written with ID: ", docRef.id))
- .catch((error) => console.error("Error adding document: ", error));
-};
 
-   //Sortzeko
-document.getElementById("sinRegistrar").addEventListener("click", () => {
-  alert("okkkoko");
-  //document.getElementById('sinRegistrar').style= "cursor: pointer";
-})
-document.getElementById("crear").addEventListener("click", () => {
-let sNombre = document.getElementById('txtNombre');
-let sEmail = document.getElementById('txtEmail');
-let fecha = new Date();
-emailOK = checkEmail(sEmail.value);//******************* */
-console.log("El correo a validar es: ", + emailOK);
+
+//Crear usuario
+const createUser = (user) => {
+  db.collection("users")
+    .add(user)
+    .then((docRef) => console.log("Document written with ID: ", docRef.id))
+    .catch((error) => console.error("Error adding document: ", error));
+};
+/*
+sBtnN.addEventListener('click', () => {
   createUser({
-    nombre: sNombre.value,
-    email: sEmail.value,
-    fecha: fecha,
+      nombre: sEmailN.value,
+      email: sEmailN.value,
+      sPasswordN: sPasswordN.value,
   });
 });
-let emailOK = false;
-let sEmpezar = document.getElementById('btnEmpezar');
-let sEmail = document.getElementById('email');
-//let sRegistro = document.getElementById('registro');
-sEmpezar.addEventListener('click', () => {
-  emailOK = checkEmail(sEmail.value);
-  if (emailOK) {
+*/
 
-    
-  } else {
-    alert("El email ", `${sEmail.value}`, " no es correcto");
-    
-    return;
-  }
-});
-
+//Hacer Login de usuario registrado
+const signUpUser = (email, password) => {
+  firebase
+  .auth()
+  .createUserWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+      // Signed in
+      let user = userCredential.user;
+      console.log(`se ha registrado ${user.email} ID:${user.uid}`)
+      alert(`se ha registrado ${user.email} ID:${user.uid}`)
+  // ...
+  // Guarda El usuario en Firestore
+      createUser({
+          id:user.uid,
+          email:user.email,
+          message:"Hola que tal"
+      });
+  })
+  .catch((error) => {
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      console.log("Error en el sistema"+error.message);
+  });
+};
+/*
+sBot1.addEventListener('click', signUpUser(sEmail1.value, sPassword1.value));
+sBot2.addEventListener('click', createUser(sEmail2.value, sPassword2.value));
+*/
 
 // Acceso con GOOGLE
-document.getElementById('google').addEventListener("click", () => {
+sGoogle.addEventListener("click", () => {
   let provider = new firebase.auth.GoogleAuthProvider(); //Google
   firebase.auth() //Login a través de Google
   .signInWithPopup(provider)
   .then((result) => {
-    /** @type {firebase.auth.OAuthCredential} */
+    /* @type {firebase.auth.OAuthCredential} */
     var credential = result.credential;
 
     // This gives you a Google Access Token. You can use it to access the Google API.
@@ -106,7 +97,6 @@ document.getElementById('google').addEventListener("click", () => {
   });
 })
 
-
 //Validar email  
 let reDNI = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 function checkEmail(emailParaValidar){
@@ -118,14 +108,140 @@ function checkEmail(emailParaValidar){
   console.log(emailParaValidar);
   return true;
 };
+/*
+
+function logInUser(email, password) { //login
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+      // Signed in
+      let user = userCredential.user;
+      console.log(`se ha logado ${user.email} ID:${user.uid}`)
+      alert(`se ha logado ${user.email} ID:${user.uid}`)
+      console.log(user);
+    })
+    .catch((error) => {
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      console.log(errorCode)
+      console.log(errorMessage)
+    });
+}
+
+function crearUser (email, password) { 
+  firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Signed in
+      let user = userCredential.user;
+      console.log(`se ha registrado ${user.email} ID:${user.uid}`)
+      alert(`se ha registrado ${user.email} ID:${user.uid}`)
+      // ...
+      // Guarda El usuario en Firestore
+      createUser({
+        id:user.uid,
+        email:user.email,
+        message:"Hola que tal"
+      });
+    })
+    .catch((error) => {
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      console.log("Error en el sistema"+error.message);
+    });
+};
 
 
 
 
 
+   //Sortzeko
+document.getElementById("bot2").addEventListener("click", () => {
+//let sNombre = document.getElementById('txtNombre');
+//let sEmail = document.getElementById('txtEmail');
+let fecha = new Date();
+//emailOK = checkEmail(sEmail.value);//******************* 
+//console.log("El correo a validar es: ", + emailOK);
+  createUser({
+    //nombre: sNombre.value,
+    nombre: sEmail.value,
+    fecha: fecha,
+  });
+});
+let emailOK = false;
+let sEmpezar = document.getElementById('btnEmpezar');
+let sEmail = document.getElementById('email');
+//let sRegistro = document.getElementById('registro');
+/*sEmpezar.addEventListener('click', () => {
+  emailOK = checkEmail(sEmail.value);
+  if (emailOK) {
+
+    
+  } else {
+    alert("El email ", `${sEmail.value}`, " no es correcto");
+    
+    return;
+  }
+});*/
 
 
 
+/*===================================================================
+function nuevoUsuario(nombre, pass){// Add a new document with a generated id.
+  db.collection("Quiz").add({
+    name: nombre,
+    password: pass
+  })
+  .then((docRef) => {
+    console.log("Document written with ID: ", docRef.id);
+  })
+  .catch((error) => {
+    console.error("Error adding document: ", error);
+  });
+};
+sBot2.addEventListener('click', nuevoUsuario(sEmail2.value, sPassword2.value));
+==================================================================00 */
+/*
+//********** PREGUNTAS ************\
+//misPreguntas
+let sQuestion = document.getElementById('question');
+let sButtons = document.getElementsByName('buttons');
+let sBtn0 = document.getElementById('btn0');
+let sBtn1 = document.getElementById('btn1');
+let sBtn2 = document.getElementById('btn2');
+let sBtn3 = document.getElementById('btn3');
+let sProgress = document.getElementById('progress');
+
+//************* ASYNC / AWAIT ************\\
+let misPreguntas = [];
+async function getPreguntas() {
+  try {
+      let response = await fetch('https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple')
+      let data = await response.json();
+      for (let i=0; i<data.length; i++){
+        //misPreguntas[i].question.push(data.result)
+      }
+      misPreguntas = data;
+  } catch (error) {
+      console.log("Se ha producido un error: " + error);
+      alert("Se ha producido el error: " + error);
+  }
+};
+getPreguntas();
+console.log(misPreguntas);
+
+sQuestion.innerText = misPreguntas.results[0].question;
+sBtn0.innerText = misPreguntas.results[0].incorrect_answers[0];
+sBtn1.innerText = misPreguntas.results[0].incorrect_answers[1];
+sBtn2.innerText = misPreguntas.results[0].incorrect_answers[02];
+sBtn3.innerText= misPreguntas.results[0].correct_answer;
+
+
+*/
+
+
+
+ /* ================================================00
 
 function Quiz(questions) {
   this.score = 0;
@@ -201,7 +317,7 @@ var questions = [
 var quiz = new Quiz(questions);
 // display quiz
 populate();
-
+==============================================00*/
 
 
 /*
@@ -392,13 +508,6 @@ populate();
 */
 
 
-
-
-
-
-
-
-
 /*const sBtResultados = document.getElementById('finalResult');
 sBtResultados.addEventListener("click", getResults);
 
@@ -425,20 +534,3 @@ function getResults() {
   
   }*/
 
-
-
-
-
-
-  ///**** DECLARACIÓN DE VARIABLES (constantes) para luego trabjar con ellas.
-/*const sEncabezadoPpal = document.getElementById('encabezadoPpal');
-const sPresentacion = document.getElementById('presentacion');
-const sTextoPres = document.getElementById('textoPres');
-const sNormas = document.getElementById('normas');
-const sTextoNorm = document.getElementById('textoNorm');
-const sListaNormas = document.getElementById('listaNormas');
-const sImgNormas = document.getElementById('imgNormas');
-const sBotones = document.getElementById('botones');
-const sBtn1 = document.getElementById('btn1');
-const sBtn2 = document.getElementById('btn2');
-const sFooterPpal = document.getElementById('footerPpal');*/
