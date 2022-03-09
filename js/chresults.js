@@ -1,11 +1,11 @@
 let sGrafica1 =document.getElementById('grafica1');
 
 var data = {
-    // A labels array that can contain any sort of values
+    
     labels: ['dia1', 'dia2', 'dia3', 'dia4', 'dia5', 'dia6', 'dia7'],
-    // Our series array that contains series objects or in this case series data arrays
+    
     series: [
-      [5, 8, 4, 5, 1, 8, 10]
+      [5, 1, 0, 5, 1, 1, 10]
     ]
   };
   var options = {
