@@ -21,52 +21,90 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+//Crear usuario
+/*====================================>
+const creaUsuario = (email, password) => {
+  firebase
+  .auth()
+  .createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Signed in
+      var user = userCredential.user;
+      let fecha = new Date();
+      createUser({
+          nombre: sEmail2.value,
+          email: sEmail2.value,
+          sPasswordN: sPassword2.value,
+          fecha: fecha,
+          aciertos: "0"
+      });
+      window.open("./game.html", "_self");
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    });
+};
+document.getElementById("bot2").addEventListener("click", alert("hola"));
+//sBot2.addEventListener('click', creaUsuario(sEmail2.value, sPassword2.value));
+
+<==================================0*/
 
 //Crear usuario
 const createUser = (user) => {
   db.collection("users")
     .add(user)
-    .then((docRef) => console.log("Document written with ID: ", docRef.id))
+    .then((docRef) => {
+      console.log("Document written with ID: ", docRef.id);
+      window.open("./game.html", "_self");
+    })
     .catch((error) => console.error("Error adding document: ", error));
 };
-/*
-sBtnN.addEventListener('click', () => {
-  createUser({
-      nombre: sEmailN.value,
-      email: sEmailN.value,
-      sPasswordN: sPasswordN.value,
-  });
-});
-*/
+sBot2.addEventListener('click', () => {
+  let fecha = new Date();
 
-//Hacer Login de usuario registrado
-const signUpUser = (email, password) => {
   firebase
   .auth()
-  .createUserWithEmailAndPassword(email, password)
+  .createUserWithEmailAndPassword(sEmail2.value, sPassword2.value)
+    .then((userCredential) => {
+      // Signed in
+      var user = userCredential.user;
+
+  createUser({
+      nombre: sEmail2.value,
+      email: sEmail2.value,
+      sPasswordN: sPassword2.value,
+      fecha: fecha,
+      aciertos: "0"
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log("Error: "+errorCode + ", " + errorMessage);
+  });
+}); 
+});
+
+
+//Hacer login de usuario registrado
+sBot1.addEventListener("click", () => {
+  firebase.auth().signInWithEmailAndPassword(sEmail1.value, sPassword1.value)
   .then((userCredential) => {
       // Signed in
       let user = userCredential.user;
-      console.log(`se ha registrado ${user.email} ID:${user.uid}`)
-      alert(`se ha registrado ${user.email} ID:${user.uid}`)
-  // ...
-  // Guarda El usuario en Firestore
-      createUser({
-          id:user.uid,
-          email:user.email,
-          message:"Hola que tal"
-      });
-  })
-  .catch((error) => {
+      console.log(`se ha logado ${user.email} ID:${user.uid}`)
+      //alert(`se ha logado ${user.email} ID:${user.uid}`)
+      console.log(user);
+      window.open("./game.html", "_self");
+    })
+    .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
-      console.log("Error en el sistema"+error.message);
-  });
-};
-/*
-sBot1.addEventListener('click', signUpUser(sEmail1.value, sPassword1.value));
-sBot2.addEventListener('click', createUser(sEmail2.value, sPassword2.value));
-*/
+      console.log(errorCode)
+      console.log(errorMessage)
+    });
+});
+
 
 // Acceso con GOOGLE
 sGoogle.addEventListener("click", () => {
@@ -76,21 +114,14 @@ sGoogle.addEventListener("click", () => {
   .then((result) => {
     /* @type {firebase.auth.OAuthCredential} */
     var credential = result.credential;
-
-    // This gives you a Google Access Token. You can use it to access the Google API.
     var token = credential.accessToken;
-    // The signed-in user info.
     var user = result.user;
-    // ...
+    
   }).catch((error) => {
-    // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
-    // The email of the user's account used.
     var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
-    // ...
   });
   provider.setCustomParameters({
     'login_hint': 'user@example.com'
@@ -108,6 +139,43 @@ function checkEmail(emailParaValidar){
   console.log(emailParaValidar);
   return true;
 };
+
+//Hacer Login de usuario registrado
+/*
+const signUpUser = (email, password) => {
+  firebase
+  .auth()
+  .createUserWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+      // Signed in
+      let user = userCredential.user;
+      console.log(`se ha registrado ${user.email} ID:${user.uid}`)
+      alert(`se ha registrado ${user.email} ID:${user.uid}`)
+  // ...
+  // Guarda El usuario en Firestore
+      let fecha = new Date();
+      createUser({
+          nombre: sEmail2.value,
+          email: sEmail2.value,
+          sPasswordN: sPassword2.value,
+          fecha: fecha,
+          aciertos: "0"
+      });
+      window.open("./game.html", "_self");
+  })
+  .catch((error) => {
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      console.log("Error en el sistema"+error.message);
+  });
+};
+
+sBot1.addEventListener('click', signUpUser(sEmail1.value, sPassword1.value));
+*/
+
+
+
+
 /*
 
 function logInUser(email, password) { //login
